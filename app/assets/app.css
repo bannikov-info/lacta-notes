@@ -1,7 +1,7 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   font-size:14px;
-  height:auto;
+  height:100%;
   margin: 0px;
   padding: 0px;
   background-color: #F5F5F5;
@@ -200,4 +200,11 @@ span.name {
   font-weight: bold;
   font-size:1.1em;
   padding-left:5px;
+}
+
+.fab-static-bottom-right{
+    position: fixed;;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
 }
