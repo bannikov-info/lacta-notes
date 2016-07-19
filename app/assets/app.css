@@ -208,3 +208,8 @@ span.name {
     right: 0;
     margin: 16px;
 }
+
+#lacta-content{
+  /*padding: 8px;*/
+  padding-bottom: 80px;
+}

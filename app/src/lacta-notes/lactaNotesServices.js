@@ -4,10 +4,10 @@
     var module = angular.module('lacta-notes');
 
     module.service('LactanotesStore', LactanotesStoreService);
-    module.constant('LactaTypes', ["Грудное", "Искуственное", " Смешаное"]);
+    module.constant('FeedingTypes', ["Грудное", "Бутылочка"]);
 
-    LactanotesStoreService.$inject = ['$q', '$moment', "LactaTypes"];
-    function LactanotesStoreService($q, $moment, LactaTypes) {
+    LactanotesStoreService.$inject = ['$q', '$moment', "FeedingTypes"];
+    function LactanotesStoreService($q, $moment, FeedingTypes) {
         var lacta_notes = generateLactaNotes(4);
 
         return {
@@ -23,14 +23,12 @@
                 var i = idx+1;
                 var l = Math.round(1+Math.random()*7);
                 for (var j = 1; j <= l; j++) {
-                    var t = Math.round(Math.random()*2);
+                    var t = Math.round(Math.random()*(FeedingTypes.length-1));
                     var item = {
                         datetime: $moment(m).subtract(i, 'days').subtract(j*3, 'hours').toDate(),
-                        type: LactaTypes[t],
-                        breastfeeding: (t===0 || t===2)
-                                       ? 30
-                                       :null,
-                        bottlefeeding: (t===1 || t===2)
+                        type: FeedingTypes[t],
+                        breastfeeding: 30,
+                        bottlefeeding: (t===1)
                                        ? 30
                                        :null,
                         desc: !!Math.round(Math.random())

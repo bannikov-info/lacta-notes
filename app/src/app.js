@@ -1,8 +1,7 @@
 ;(function () {
     "use strict";
     var app = angular
-        .module('starterApp', ['ngMaterial', 'ngAnimate', 'lacta-notes', 'angular-momentjs'])
-        .constant('_', window._)
+        .module('starterApp', ['ngMaterial', 'ngAnimate', 'lacta-notes', 'utils.filters', 'menu'])
         .config(function($mdThemingProvider, $mdIconProvider){
 
             $mdIconProvider
@@ -21,20 +20,5 @@
 
         });
 
-    app.filter('groupByDate', function($moment, _){
-        return _.memoize(function (items, dateField) {
-            var field = dateField || 'date';
 
-            var gRes = _.groupBy(items, function (item) {
-                try {
-                    var m = $moment(item[field]);
-                    return m.format('DD.MM.YYYY')
-                } catch (e) {
-                    return null
-                };
-            })
-
-            return gRes;
-        })
-    })
 }());
