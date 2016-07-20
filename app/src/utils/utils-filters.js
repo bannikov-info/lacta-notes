@@ -25,9 +25,10 @@
           return gRes;
       },
       function resolver(items, dateField, format) {
+        var l = (!!items) ? items.length : 0;
         var field = dateField || 'date';
         var fmt = format || 'DD.MM.YYYY';
-        return items.length + field + fmt;
+        return l + field + fmt;
       }
     )
   });

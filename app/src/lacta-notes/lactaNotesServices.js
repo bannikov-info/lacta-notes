@@ -31,7 +31,7 @@
                         bottlefeeding: (t===1)
                                        ? 30
                                        :null,
-                        desc: !!Math.round(Math.random())
+                        note: !!Math.round(Math.random())
                               ? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices placerat enim id varius. Donec sodales urna sed.'
                               : null
                     };

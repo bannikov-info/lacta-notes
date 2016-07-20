@@ -1,0 +1,56 @@
+<md-dialog aria-label=""  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" ng-click="form.cancel()">
+            <md-icon md-svg-icon="dialog:close" aria-label="Close dialog"></md-icon>
+          </md-button>
+        <h2>{{form.data.title || 'Новое кормление'}}</h2>
+        <span flex></span>
+        <md-button ng-click="form.done()">
+          Готово
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+          <div layout="row" layout-align="space-around center">
+              <h3 class="md-display-2">{{(form.data.datetime || '15:00') | date: 'HH:mm'}}</h3>
+              <h4 class="md-headline">{{(form.data.datetime || '17 июля 2016') | date: 'd MMMM yyyy'}}</h4>
+          </div>
+          <md-divider><md-divider>
+          <h3>Способ кормления</h3>
+          <md-radio-group ng-model="form.data.type">
+              <md-radio-button value="Грудное">Грудное</md-radio-button>
+              <md-radio-button value="Бутылочка">Бутылочка</md-radio-button>
+          </md-radio-group>
+          <div style="margin-top: 50px;"></div>
+          <md-slider-container>
+              <span>Грудное молоко</span>
+              <md-slider flex  ng-model="form.data.breastfeeding" md-discrete step="10" min="0" max="250"></md-slider>
+          </md-slider-container>
+          <md-slider-container>
+              <span>Смесь</span>
+              <md-slider flex ng-model="form.data.bottlefeeding" md-discrete step="10" min="0" max="250"></md-slider>
+          </md-slider-container>
+          <md-divider><md-divider>
+          <md-input-container class="md-block">
+             <label>Коментарии</label>
+             <textarea ng-model="form.data.note" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+      </div>
+    </md-dialog-content>
+    <!-- <md-dialog-actions layout="row">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+       Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')">
+        Useful
+      </md-button>
+    </md-dialog-actions> -->
+  </form>
+</md-dialog>
