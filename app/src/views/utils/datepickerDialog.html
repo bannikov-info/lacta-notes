@@ -1,0 +1,16 @@
+<md-dialog  ng-cloak>
+    <md-toolbar layout="column" layout-padding>
+        <!-- <div class="md-toolbar-tools" layout="column" flex> -->
+            <div class="md-subhead">{{dialog.date | date:'yyyy'}}</div>
+            <div class="md-display-1">{{dialog.date | date:'EEE, MMM d'}}</div>
+        <!-- </div> -->
+    </md-toolbar>
+    <md-dialog-content flex layout="column" layout-align="center center">
+            <md-calendar ng-model="dialog.date" flex></md-calendar>
+    </md-dialog-content>
+    <!-- <md-divider></md-divider> -->
+    <md-dialog-actions>
+        <md-button class="md-primary" ng-click="dialog.abort()">Cancel</md-button>
+        <md-button class="md-primary" ng-click="dialog.hide()">Ok</md-button>
+    </md-dialog-actions>
+</md-dialog>

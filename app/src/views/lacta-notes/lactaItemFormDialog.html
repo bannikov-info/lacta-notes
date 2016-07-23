@@ -16,7 +16,13 @@
       <div class="md-dialog-content" layout="column">
           <div layout="row" layout-align="space-around center">
               <h3 class="md-display-2">{{(form.data.datetime || '15:00') | date: 'HH:mm'}}</h3>
-              <h4 class="md-headline">{{(form.data.datetime || '17 июля 2016') | date: 'd MMMM yyyy'}}</h4>
+              <h4 class="md-headline" ng-click="form.selectDate()">{{(form.data.datetime || '17 июля 2016') | date: 'd MMMM yyyy'}}</h4>
+              <!-- <h4 class="md-display-1"><md-datepicker ng-model="form.data.datetime"></md-datepicker></h4> -->
+          </div>
+          <div>
+              <!-- <md-calendar ng-model="form.data.datetime"></md-calendar> -->
+              <!-- <md-calendar-month ng-model="form.data.datetime"></md-calendar-month> -->
+              <!-- <md-calendar-year ng-model="form.data.datetime"></md-calendar-year> -->
           </div>
           <md-divider><md-divider>
           <h3>Способ кормления</h3>

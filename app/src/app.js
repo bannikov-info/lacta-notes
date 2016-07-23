@@ -1,7 +1,8 @@
 ;(function () {
     "use strict";
     var app = angular
-        .module('starterApp', ['ngMaterial', 'ngAnimate', 'lacta-notes', 'utils.filters', 'menu'])
+        .module('starterApp', ['ngMaterial', 'ngAnimate', 'lacta-notes', 
+                'utils.filters', 'menu', 'utils.datepicker'])
         .config(function($mdThemingProvider, $mdIconProvider){
 
             $mdIconProvider
