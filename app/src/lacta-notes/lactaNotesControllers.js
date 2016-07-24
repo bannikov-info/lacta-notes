@@ -23,8 +23,8 @@
         };
     };
 
-    AddItemDialogController.$inject=['$scope', '$mdDialog']
-    function AddItemDialogController($scope, $mdDialog) {
+    AddItemDialogController.$inject=['$scope', '$mdDialog', '$moment']
+    function AddItemDialogController($scope, $mdDialog, $moment) {
         this.data = this.data || {datetime: new Date()};
         var self = this;
 
@@ -39,9 +39,18 @@
 
             var preset = $mdDialog.datepicker({skipHide: true}).date(self.data.datetime);
             $mdDialog.show(preset).then(function (date) {
-                self.data.datetime = date;
+                self.data.datetime = setDate(self.data.datetime, date);
             });
+        };
 
+        function setDate(oldDate, newDate){
+            var oldMoment = $moment(oldDate),
+                newMoment = $moment(newDate);
+
+            return oldMoment.date(newMoment.date())
+                            .month(newMoment.month())
+                            .year(newMoment.year())
+                            .toDate();
         }
     };
 
